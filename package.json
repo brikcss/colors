@@ -1,6 +1,6 @@
 {
 	"name": "@brikcss/colors",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Colors component to make managing CSS colors easier.",
 	"author": "Brikcss <https://github.com/brikcss>",
 	"contributors": [
@@ -21,7 +21,8 @@
 	],
 	"main": "./dist/colors.init.js",
 	"files": [
-		"dist"
+		"dist",
+		"src"
 	],
 	"publishConfig": {
 		"tag": "dev",
