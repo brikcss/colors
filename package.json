@@ -1,6 +1,6 @@
 {
 	"name": "@brikcss/colors",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Colors component to make managing CSS colors easier.",
 	"author": "Brikcss <https://github.com/brikcss>",
 	"contributors": [
@@ -36,7 +36,8 @@
 	},
 	"scripts": {
 		"start": "concurrently --raw \"npm run watch\" \"npm run serve\"",
-		"ci": "npm test",
+		"preci": "npm run build",
+		"ci": "concurrently --raw \"npm run test:lint\" \"npx shots --fail false\"",
 		"pretest": "npm run build",
 		"test": "concurrently --raw \"npm run test:lint\" \"npm run test:ui\"",
 		"test:lint": "concurrently \"npm run lint:js\" \"npm run lint:css\" && echo \"\n[ok] Linter complete.\n\"",
