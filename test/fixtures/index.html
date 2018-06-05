@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Brikcss Colors</title>
+	<link rel="stylesheet" type="text/css" href="../../dist/colors.init.css">
+	<style type="text/css">
+		/* Test specific styles. */
+
+		.cards {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.card {
+			background-color: hsl(0, 0%, 100%);
+			box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.3);
+			display: flex;
+			align-items: stretch;
+			justify-content: center;
+			height: 10rem;
+			width: 10rem;
+			margin-left: 1rem;
+			margin-right: 1rem;
+			margin-bottom: 2rem;
+		}
+		.card--dark {
+			background-color: hsl(0, 0%, 20%);
+		}
+		.color {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+
+	<h2>Background colors</h2>
+	<div class="cards">
+		<div class="card">
+			<div class="color bg-brand1">.bg-brand1</div>
+		</div>
+		<div class="card">
+			<div class="color bg-brand2">.bg-brand2</div>
+		</div>
+		<div class="card">
+			<div class="color bg-brand3">.bg-brand3</div>
+		</div>
+		<div class="card">
+			<div class="color bg-brand4">.bg-brand4</div>
+		</div>
+
+		<div class="card">
+			<div class="color bg-supernav">.bg-supernav</div>
+		</div>
+		<div class="card">
+			<div class="color bg-supernav--dark">.bg-supernav--dark</div>
+		</div>
+		<div class="card">
+			<div class="color bg-supernav--icon">.bg-supernav--icon</div>
+		</div>
+		<div class="card">
+			<div class="color bg-gray">.bg-gray</div>
+		</div>
+	</div>
+
+	<h2>Text colors</h2>
+	<div style="padding: 0 1rem 1rem;">
+		<h3 class="color-dark1">.color-dark or .color-dark1</h3>
+		<h3 class="color-dark2">.color-dark2</h3>
+		<h3 class="color-dark3">.color-dark3</h3>
+		<h3 class="color-dark4">.color-dark4</h3>
+	</div>
+
+	<div style="background-color: hsl(0, 0%, 20%); padding: 1rem;">
+		<h3 class="color-light1">.color-light or .color-light1</h3>
+		<h3 class="color-light2">.color-light2</h3>
+		<h3 class="color-light3">.color-light3</h3>
+		<h3 class="color-light4">.color-light4</h3>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+{
+	"name": "@brikcss/colors",
+	"version": "0.0.1",
+	"description": "Colors component to make managing CSS colors easier.",
+	"author": "Brikcss <https://github.com/brikcss>",
+	"contributors": [
+		"The Zimmee <thezimmee@gmail.com>"
+	],
+	"homepage": "https://github.com/brikcss/colors",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/brikcss/colors.git"
+	},
+	"bugs": {
+		"url": "https://github.com/brikcss/colors/issues"
+	},
+	"keywords": [
+		"brikcss",
+		"css",
+		"colors"
+	],
+	"main": "./dist/colors.init.js",
+	"files": [
+		"dist"
+	],
+	"publishConfig": {
+		"tag": "dev",
+		"access": "public"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "NODE_ENV=production node ./node_modules/.bin/pre-commit-lint",
+			"commit-msg": "commitlint -e $HUSKY_GIT_PARAMS && . ./node_modules/.bin/commit-msg-stamp-branch ${HUSKY_GIT_PARAMS}",
+			"pre-push": ". ./node_modules/.bin/pre-push-check-stage && NODE_ENV=test npm test && echo \"\n[ok] Pushing code...\""
+		}
+	},
+	"scripts": {
+		"start": "concurrently --raw \"npm run watch\" \"npm run serve\"",
+		"ci": "npm test",
+		"pretest": "npm run build",
+		"test": "concurrently --raw \"npm run test:lint\" \"npm run test:ui\"",
+		"test:lint": "concurrently \"npm run lint:js\" \"npm run lint:css\" && echo \"\n[ok] Linter complete.\n\"",
+		"test:ui": "npx shots",
+		"prebuild": "rimraf dist",
+		"build": "stak --config=.stakcssrc.js:all",
+		"watch": "npm run build -- --watch",
+		"serve": "browser-sync start --config ./.browsersyncrc.js",
+		"lint:css": "node ./node_modules/.bin/stylelint src/**/*.css --format=stylish",
+		"lint:js": "node ./node_modules/.bin/eslint ./src/**/*.js",
+		"semantic-release": "semantic-release"
+	},
+	"devDependencies": {
+		"@brikcss/eslint-config": "0.1.4",
+		"@brikcss/git-hooks": "1.2.0",
+		"@brikcss/merge": "1.0.7",
+		"@brikcss/shots": "0.0.9",
+		"@brikcss/stakcss": "0.8.0",
+		"@brikcss/stakcss-bundler-copy": "0.1.0",
+		"@brikcss/stakcss-bundler-ejs": "0.0.1",
+		"@brikcss/stakcss-bundler-postcss": "0.4.0",
+		"@brikcss/stylelint-config-css": "0.0.7",
+		"@brikcss/watcher-cli": "1.0.0",
+		"@commitlint/cli": "7.0.0",
+		"autoprefixer": "8.6.0",
+		"browser-sync": "2.24.4",
+		"concurrently": "3.5.1",
+		"eslint": "4.19.1",
+		"postcss": "6.0.22",
+		"postcss-csso": "3.0.0",
+		"postcss-mixins": "6.2.0",
+		"prettier": "1.13.4",
+		"rimraf": "2.6.2",
+		"semantic-release": "15.5.0",
+		"stylelint": "9.2.1",
+		"stylelint-formatter-pretty": "1.0.3"
+	}
+}

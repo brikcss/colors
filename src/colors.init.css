@@ -1,0 +1,53 @@
+/*! colors.init.css | MIT License | brikcss  <https://github.com/brikcss> */
+
+/** Text colors.
+    ============================================================================================= */
+
+/* stylelint-disable property-no-unknown, color-named, color-no-hex, color-no-invalid-hex */
+@mixin colors {
+	/* Dark text. */
+	dark: hsla(0, 0%, 0%, 0.87);
+	dark1: hsla(0, 0%, 0%, 0.87);
+	dark2: hsla(0, 0%, 0%, 0.54);
+	dark3: hsla(0, 0%, 0%, 0.38);
+	dark4: hsla(0, 0%, 0%, 0.12);
+
+	/* Light text. */
+	light: hsla(0, 0%, 100%, 1);
+	light1: hsla(0, 0%, 100%, 1);
+	light2: hsla(0, 0%, 100%, 0.7);
+	light3: hsla(0, 0%, 100%, 0.5);
+	light4: hsla(0, 0%, 100%, 0.12);
+
+	/* Brand colors. */
+	brand1: hsl(194, 76%, 65%);
+	brand2: hsl(69, 67%, 51%);
+	brand3: hsl(36, 96%, 54%);
+	brand4: hsl(206, 7%, 45%);
+
+	/* Other element colors. */
+	supernav: hsl(209, 24%, 30%);
+	supernav--dark: hsl(209, 24%, 22%);
+	supernav--icon: hsl(209, 11%, 65%);
+	gray: hsl(0, 0%, 90%);
+
+	/* Classes to create from variables above. */
+	.color- {
+		colors: dark dark1 dark2 dark3 dark4 light light1 light2 light3 light4;
+		color: color();
+	}
+
+	.bg- {
+		colors: brand1 brand2 brand3 brand4 supernav supernav--dark supernav--icon;
+		background-color: color();
+		color: var(--color__light);
+	}
+
+	.bg- {
+		colors: gray;
+		background-color: color();
+		fill: color();
+		color: var(--color__dark);
+	}
+}
+/* stylelint-enable property-no-unknown, color-named */
