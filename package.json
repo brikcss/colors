@@ -1,6 +1,6 @@
 {
 	"name": "@brikcss/colors",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "Colors component to make managing CSS colors easier.",
 	"author": "Brikcss <https://github.com/brikcss>",
 	"contributors": [
@@ -19,7 +19,7 @@
 		"css",
 		"colors"
 	],
-	"main": "./dist/colors.min.css",
+	"main": "./src/colors.css",
 	"files": [
 		"dist",
 		"src"
@@ -60,7 +60,7 @@
 		"@brikcss/stakcss-bundler-copy": "0.1.0",
 		"@brikcss/stakcss-bundler-ejs": "0.0.1",
 		"@brikcss/stakcss-bundler-postcss": "0.4.0",
-		"@brikcss/stylelint-config-css": "0.0.7",
+		"@brikcss/stylelint-config-css": "0.1.2",
 		"@brikcss/watcher-cli": "1.0.0",
 		"@commitlint/cli": "7.0.0",
 		"autoprefixer": "8.6.0",

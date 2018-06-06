@@ -64,11 +64,11 @@ Colors component to make creating and managing color class and variables in CSS 
 	npm i -D @brikcss/colors
 	```
 
-2. Include desired file(s) in your app:
+2. Include file(s) in your app:
 
-	- `./dist/colors.min.css` and `./dist/colors.css` are precompiled with PostCSS. Include this to use all defaults.
-	- `./src/colors.css` is the source CSS file. Use this as an example, along with the source PostCSS mixins, to generate your own colors.
-	- `./src/mixins/colors.js` is the source colors mixin. Use this to generate your own color variables and classes.
+	- _PostCSS:_ `@import '@brikcss/colors';` with [postcss-import](https://github.com/postcss/postcss-import).
+	- _Precompiled:_ Include `./dist/colors.min.css` for the precompiled version (i.e., no PostCSS required).
+	- _Custom:_ To generate your own color variables and classes, use the [colors @mixin](./src/mixins/colors.js) and follow the [source CSS](./src/colors.css).
 
 ## Colors mixin usage
 
