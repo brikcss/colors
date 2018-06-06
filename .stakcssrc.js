@@ -1,22 +1,21 @@
-// Setup.
+/** Setup.
+ ============================================================================================= */
+
 const env = process.env.NODE_ENV;
-const isProd = ['production', 'test'].includes(env);
-const postcssPlugins = require('./.postcssrc.js');
+const isProd = ['production', 'prod', 'test'].includes(env);
+const loadPostcssPlugins = require('./.postcssrc.js');
+const basePostcssPlugins = ['postcss-mixins', 'autoprefixer'];
 
 // Config export object.
 let config = {
 	css: {
-		source: 'src/colors.init.css',
-		output: './dist/colors.init.css',
+		source: 'src/colors.css',
+		output: './dist/colors.css',
 		bundlers: [
 			{
 				run: '@brikcss/stakcss-bundler-postcss',
-				options: { skipConfig: true },
-				plugins: postcssPlugins(
-					'postcss-mixins',
-					'./lib/postcss-background-color.js',
-					'postcss-reporter'
-				)
+				options: { skipConfig: true, map: false },
+				plugins: loadPostcssPlugins(...basePostcssPlugins.concat(['postcss-reporter']))
 			}
 		],
 		watchPaths: ['src/mixins/*.js']
@@ -25,13 +24,12 @@ let config = {
 
 if (isProd) {
 	config.css_min = Object.assign({}, config.css, {
+		output: 'dist/colors.min.css',
 		bundlers: [
 			{
 				run: '@brikcss/stakcss-bundler-postcss',
-				options: {
-					skipConfig: true
-				},
-				plugins: postcssPlugins('autoprefixer', 'postcss-csso')
+				options: { skipConfig: true, map: false },
+				plugins: loadPostcssPlugins(...basePostcssPlugins.concat(['postcss-csso']))
 			}
 		]
 	});

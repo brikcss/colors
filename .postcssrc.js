@@ -15,7 +15,7 @@ module.exports = (...plugins) => {
 		'postcss-import': {
 			// filter: (filepath) => {},
 			// root: process.cwd(),
-			// path: [],
+			path: ['node_modules']
 			// plugins: [],
 			// resolve: (id, baseDir, importOptions) => {},
 			// load: (filename, importOptions) => {},
@@ -25,7 +25,7 @@ module.exports = (...plugins) => {
 
 		// Create custom css/js mixins.
 		'postcss-mixins': {
-			mixinsDir: './src/mixins'
+			mixinsFiles: ['src/mixins/*.js']
 		},
 
 		// Manage assets.
@@ -57,9 +57,7 @@ module.exports = (...plugins) => {
 		},
 
 		// Enables custom property sets.
-		'postcss-apply': {
-			preserve: true
-		},
+		'postcss-apply': {},
 
 		// Polyfill future css features based on supported browsers.
 		'postcss-preset-env': {
@@ -134,7 +132,7 @@ module.exports = (...plugins) => {
 			rootValue: 8,
 			unitPrecision: 5,
 			propList: ['*'],
-			selectorBlackList: [],
+			selectorBlackList: ['html', 'body'],
 			replace: true,
 			mediaQuery: false,
 			minPixelValue: 0

@@ -1,6 +1,6 @@
 {
 	"name": "@brikcss/colors",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "Colors component to make managing CSS colors easier.",
 	"author": "Brikcss <https://github.com/brikcss>",
 	"contributors": [
@@ -19,7 +19,7 @@
 		"css",
 		"colors"
 	],
-	"main": "./dist/colors.init.js",
+	"main": "./dist/colors.min.css",
 	"files": [
 		"dist",
 		"src"
@@ -32,7 +32,7 @@
 		"hooks": {
 			"pre-commit": "NODE_ENV=production node ./node_modules/.bin/pre-commit-lint",
 			"commit-msg": "commitlint -e $HUSKY_GIT_PARAMS && . ./node_modules/.bin/commit-msg-stamp-branch ${HUSKY_GIT_PARAMS}",
-			"pre-push": ". ./node_modules/.bin/pre-push-check-stage && NODE_ENV=test npm test && echo \"\n[ok] Pushing code...\""
+			"pre-push": "NODE_ENV=test npm test && . ./node_modules/.bin/pre-push-check-stage && echo \"\n[ok] Pushing code...\""
 		}
 	},
 	"scripts": {

@@ -62,5 +62,5 @@ module.exports = (mixin, addVariables = 'true') => {
 
 	// Add variables to the container and replace the mixin.
 	if (addVariables) container.prepend(variablesContainer);
-	mixin.replaceWith(container);
+	mixin.replaceWith(container.toResult().css);
 };
